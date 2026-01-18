@@ -28,6 +28,9 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
+import DIV.gtcsolo.registry.ModBlocks;
+import DIV.gtcsolo.registry.ModFluids;
+import DIV.gtcsolo.registry.ModItems;
 //this is test log
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Gtcsolo.MODID)
@@ -62,6 +65,9 @@ public class Gtcsolo {
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+        ModFluids.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModItems.register(modEventBus);
 
         // Register the Deferred Register to the mod event bus so blocks get registered
         BLOCKS.register(modEventBus);
